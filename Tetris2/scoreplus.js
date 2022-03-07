@@ -10,7 +10,7 @@ url = "wss://ucp-games-2021.azurewebsites.net/multiplayer";
     console.log("conexion exitosa");
     console.log("jugador "  + window.playerID);
   };
-  window.multiplayer.onmessage = function(event){ 
+  window.multiplayer.onopen = function(event){ 
     var datos = JSON.parse(event.data); 
     console.log(datos.players); 
   };
