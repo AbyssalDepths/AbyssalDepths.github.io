@@ -21,7 +21,6 @@ function saveBeforeInstallPromptEvent(evt) {
 }
 
 
-
 /**
  * Event handler for butInstall - Does the PWA installation.
  *
