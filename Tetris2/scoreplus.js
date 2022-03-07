@@ -1,4 +1,4 @@
-url = "wss://ucp-games-2021.azurewebsites.net/multiplayer";
+url = "https://console.firebase.google.com/u/1/project/basededatosprogmovilparcial/firestore/data/~2F"; //"wss://ucp-games-2021.azurewebsites.net/multiplayer";
   window.multiplayer = new WebSocket(url);
   window.playerID = localStorage.getItem('playerID'); 
    if (typeof window.playerID === 'undefined' || window.playerID == null) { 
