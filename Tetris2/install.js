@@ -1,34 +1,60 @@
-window.addEventListener('beforeinstallprompt', (event) => {
-  // Prevent the mini-infobar from appearing on mobile.
-  event.preventDefault();
-  console.log('👍', 'beforeinstallprompt', event);
-  // Stash the event so it can be triggered later.
-  window.deferredPrompt = event;
-  // Remove the 'hidden' class from the install button container.
-  divInstall.classList.toggle('hidden', false);
-});
+'use strict';
 
-butInstall.addEventListener('click', async () => {
-  console.log('👍', 'butInstall-clicked');
-  const promptEvent = window.deferredPrompt;
-  if (!promptEvent) {
-    // The deferred prompt isn't available.
-    return;
-  }
-  // Show the install prompt.
-  promptEvent.prompt();
-  // Log the result
-  const result = await promptEvent.userChoice;
-  console.log('👍', 'userChoice', result);
-  // Reset the deferred prompt variable, since
-  // prompt() can only be called once.
-  window.deferredPrompt = null;
-  // Hide the install button.
-  divInstall.classList.toggle('hidden', true);
-});
+let deferredInstallPrompt = null;
+const installButton = document.getElementById('butInstall');
+installButton.addEventListener('click', installPWA);
 
-window.addEventListener('appinstalled', (event) => {
-  console.log('👍', 'appinstalled', event);
-  // Clear the deferredPrompt so it can be garbage collected
-  window.deferredPrompt = null;
-});
+// CODELAB: Add event listener for beforeinstallprompt event
+window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
+
+
+/**
+ * Event handler for beforeinstallprompt event.
+ *   Saves the event & shows install button.
+ *
+ * @param {Event} evt
+ */
+function saveBeforeInstallPromptEvent(evt) {
+  // CODELAB: Add code to save event & show the install button.
+  deferredInstallPrompt = evt;
+  installButton.removeAttribute('hidden');
+}
+
+// holaaaaaaa
+
+/**
+ * Event handler for butInstall - Does the PWA installation.
+ *
+ * @param {Event} evt
+ */
+function installPWA(evt) {
+  // CODELAB: Add code show install prompt & hide the install button.
+  deferredInstallPrompt.prompt();
+  // Hide the install button, it can't be called twice.
+  evt.srcElement.setAttribute('hidden', true);
+  // CODELAB: Log user response to prompt.
+  deferredInstallPrompt.userChoice
+      .then((choice) => {
+        if (choice.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt', choice);
+        } else {
+          console.log('User dismissed the A2HS prompt', choice);
+        }
+        deferredInstallPrompt = null;
+      });
+}
+
+// CODELAB: Add event listener for appinstalled event
+window.addEventListener('appinstalled', logAppInstalled);
+
+/**
+ * Event handler for appinstalled event.
+ *   Log the installation to analytics or save the event somehow.
+ *
+ * @param {Event} evt
+ */
+function logAppInstalled(evt) {
+  // CODELAB: Add code to log the event
+  console.log('Tetris was installed.', evt);
+
+}
