@@ -20,7 +20,7 @@ function saveBeforeInstallPromptEvent(evt) {
   installButton.removeAttribute('hidden');
 }
 
-// holaaa
+// holaaaaaaa
 
 /**
  * Event handler for butInstall - Does the PWA installation.
