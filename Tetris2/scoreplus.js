@@ -15,6 +15,8 @@ url = "wss://ucp-games-2021.azurewebsites.net/multiplayer";
     console.log(datos.players); 
   };
 
+// hola
+
 function scoreplus(puntos){
   var datosprueba = {
     "game":"Tetris UCP",
