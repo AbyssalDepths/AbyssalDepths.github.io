@@ -1,4 +1,4 @@
-url = "https://prueba-166d9-default-rtdb.firebaseio.com/";
+url = "wss://ucp-games-2021.azurewebsites.net/multiplayer";
   window.multiplayer = new WebSocket(url);
   window.playerID = localStorage.getItem('playerID'); 
    if (typeof window.playerID === 'undefined' || window.playerID == null) { 
@@ -16,7 +16,7 @@ url = "https://prueba-166d9-default-rtdb.firebaseio.com/";
   };
   window.multiplayer.onclose = function(event){
     console.error("Error");
-  };
+  }
 
 // hola function isOpen(ws) { return ws.readyState === ws.OPEN }
 
