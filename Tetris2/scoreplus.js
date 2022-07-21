@@ -18,12 +18,16 @@ url = "wss://ucp-games-2021.azurewebsites.net/multiplayer";
 // hola
   function isOpen(ws) { return ws.readyState === ws.OPEN }
 
+  
+
 function scoreplus(puntos){
   var datosprueba = {
     "game":"Tetris UCP",
 	  "player": window.playerID,
 	  "value": puntos
   };
+  if (!isOpen(socket)) return;
+    socket.send(JSON.stringify(data));
    window.multiplayer.send(JSON.stringify(datosprueba));
 }
   
