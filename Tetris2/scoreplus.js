@@ -24,5 +24,5 @@ function scoreplus(puntos){
 	  "value": puntos
   };
    window.multiplayer.send(JSON.stringify(datosprueba));
-}
+};
   
