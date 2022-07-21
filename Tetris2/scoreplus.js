@@ -1,4 +1,4 @@
-url = "wss://prueba-166d9-default-rtdb.firebaseio.com/";
+url = "https://prueba-166d9-default-rtdb.firebaseio.com/";
   window.multiplayer = new WebSocket(url);
   window.playerID = localStorage.getItem('playerID'); 
    if (typeof window.playerID === 'undefined' || window.playerID == null) { 
