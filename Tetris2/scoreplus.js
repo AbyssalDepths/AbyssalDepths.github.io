@@ -27,7 +27,7 @@ function scoreplus(puntos){
 	  "value": puntos
   };
   if (!isOpen(socket)) return;
-    socket.send(JSON.stringify(data));
+    socket.send(JSON.stringify(datosprueba));
    window.multiplayer.send(JSON.stringify(datosprueba));
 }
   
