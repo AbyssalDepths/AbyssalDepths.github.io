@@ -16,7 +16,7 @@ url = "wss://javascript.info/chat";
   };
 
 
-// hola function isOpen(ws) { return ws.readyState === ws.OPEN }a
+// hola function isOpen(ws) { return ws.readyState === ws.OPEN }aaaaaa
 
 function scoreplus(puntos){
   var datosprueba = {
