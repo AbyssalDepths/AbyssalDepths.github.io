@@ -1,4 +1,4 @@
-url = "wss://javascript.info/chat";
+url = "wss://ucp-games-2021.azurewebsites.net/multiplayer";
   window.multiplayer = new WebSocket(url);
   window.playerID = localStorage.getItem('playerID'); 
    if (typeof window.playerID === 'undefined' || window.playerID == null) { 
