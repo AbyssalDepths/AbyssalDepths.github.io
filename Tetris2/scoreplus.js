@@ -16,7 +16,7 @@ url = "wss://ucp-games-2021.azurewebsites.net/multiplayer";
   };
 
 
-// hola function isOpen(ws) { return ws.readyState === ws.OPEN }aaaaaaaaa1
+// hola function isOpen(ws) { return ws.readyState === ws.OPEN }aaaaaaaaa
 
 function scoreplus(puntos){
   var datosprueba = {
